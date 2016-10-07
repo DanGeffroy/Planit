@@ -1,6 +1,12 @@
 # PartyPlanner
 A web application that help you planning stuff like party or any kind of events
 
+## Wanted features
+- Date choice (including vote if user want)
+- Place choice (including vote if user want) or GPS position selection
+- shopping list for attendees
+- probably more !
+
 
 ## Techs
 It will implement the MEAN stack but with angular 2.  
