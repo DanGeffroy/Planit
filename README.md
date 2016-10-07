@@ -1,4 +1,4 @@
-# PartyPlanner
+# PartyPlanner ![alt text](http://emojipedia-us.s3.amazonaws.com/cache/28/cc/28cc4d727f2a24d7ad1c0eae86edd166.png)
 A web application that help you planning stuff like party or any kind of events
 
 ## Wanted features
