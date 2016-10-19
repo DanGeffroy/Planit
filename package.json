@@ -1,7 +1,7 @@
 {
-  "name": "vulgar",
-  "version": "2.0.4",
-  "description": "A simple and scalable MEAN stack development kit featuring Angular 2 (Router, Http, Forms, Services, Tests, E2E, Coverage, Dev/Prod), Express, MongoDB, Mongoose, Node, Redux, @ngrx/store,  PassportJS, Socket.io, Karma, Protractor, Jasmine, Istanbul, SASS Support, TypeScript, TSLint, NG2Lint, Hot Module Replacement, Docco, Gulp, and Webpack by @datatype_void",
+  "name": "PartyPlanner",
+  "version": "0.0.0",
+  "description": "A web application that help you planning stuff like party or any kind of events",
   "keywords": [
     "angular2",
     "webpack",
@@ -10,8 +10,8 @@
     "express",
     "mongodb"
   ],
-  "author": "David Newman <blackshuriken@hotmail.com>",
-  "homepage": "https://github.com/datatypevoid/vulgar",
+  "author": "Geffroy Dan <https://github.com/DanGeffroy/>",
+  "homepage": "https://github.com/DanGeffroy/PartyPlanner",
   "license": "MIT",
   "scripts": {
     "rimraf": "rimraf",
@@ -187,10 +187,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/datatypevoid/vulgar.git"
+    "url": "https://github.com/DanGeffroy/PartyPlanner.git"
   },
   "bugs": {
-    "url": "https://github.com/datatypevoid/vulgar/issues"
+    "url": "https://github.com/DanGeffroy/PartyPlanner/issues"
   },
   "engines": {
     "node": ">= 4.2.1",

@@ -3,9 +3,6 @@
 # Ignore Documentation
 docs
 
-# Ignore Node env variables
-config/config.json
-
 # Ignore file-loader directory
 res
 
