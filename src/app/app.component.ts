@@ -25,9 +25,6 @@ import {Home} from './home';
 // Import NgFor directive
 import {NgFor} from '@angular/common';
 
-// Import Todo component
-import {Todo} from './todo/todo.component';
-
 // Import Recipes component
 import {Recipes} from './recipes/recipes.component';
 
@@ -38,8 +35,7 @@ import {Recipes} from './recipes/recipes.component';
 @Component({
   selector: 'app',
   providers: [  ],
-  directives: [ Todo,
-                NgFor,
+  directives: [ NgFor,
                 RouterActive],
   encapsulation: ViewEncapsulation.None,
   pipes: [],
@@ -56,14 +52,8 @@ import {Recipes} from './recipes/recipes.component';
           <button md-button router-active [routerLink]=" ['Home'] ">
             Home
           </button>
-          <button md-button router-active [routerLink]=" ['Todo'] ">
-            Todo
-          </button>
           <button md-button router-active [routerLink]=" ['Recipes'] ">
             Recipes
-          </button>
-          <button md-button router-active [routerLink]=" ['About'] ">
-            About
           </button>
       </md-toolbar>
 
@@ -84,11 +74,7 @@ import {Recipes} from './recipes/recipes.component';
 @RouteConfig([
   { path: '/', name: 'Index', component: Home, useAsDefault: true },
   { path: '/home',  name: 'Home',  component: Home },
-  { path: '/todo', component: Todo, name: 'Todo' },
   { path: '/redux', component: Recipes, name: 'Recipes' },
-  // Async load a component using Webpack's require with
-  // es6-promise-loader and webpack `require`
-  { path: '/about', name: 'About', loader: () => require('es6-promise!./about')('About') },
 ])
 export class App {
   angularLogo = 'assets/img/angular-logo.png';
