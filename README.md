@@ -48,7 +48,10 @@ $ gulp serve
 
 The app is now running right here :  [http://localhost:3000/](http://localhost:3000/) 
 
+<p align="center">
+    <img src="https://media.giphy.com/media/hsBZfDG7wiWHu/giphy.gif">
+</p>
 
-![alt text](https://media.giphy.com/media/hsBZfDG7wiWHu/giphy.gif)  
+
 
 Made with :heart: by Dan
