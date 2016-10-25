@@ -1,4 +1,6 @@
-# PartyPlanner ![alt text](http://emojipedia-us.s3.amazonaws.com/cache/28/cc/28cc4d727f2a24d7ad1c0eae86edd166.png)
+<p align="center">
+    <img src="planit_banner.png" height="250">
+</p>
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/DanGeffroy/PartyPlanner/blob/master/LICENSE)  
 
