@@ -28,6 +28,9 @@ import {NgFor} from '@angular/common';
 // Import Recipes component
 import {Recipes} from './recipes/recipes.component';
 
+// Import Event component
+import {Event} from './event/event.component';
+
 /*
  * App Component
  * Top Level Component
@@ -35,7 +38,8 @@ import {Recipes} from './recipes/recipes.component';
 @Component({
   selector: 'app',
   providers: [  ],
-  directives: [ NgFor,
+  directives: [ Event,
+                NgFor,
                 RouterActive],
   encapsulation: ViewEncapsulation.None,
   pipes: [],
@@ -48,6 +52,9 @@ import {Recipes} from './recipes/recipes.component';
           <span class="fill"></span>
           <button md-button router-active [routerLink]=" ['Index'] ">
             Index
+          </button>
+          <button md-button router-active [routerLink]=" ['Event'] ">
+            Event
           </button>
           <button md-button router-active [routerLink]=" ['Home'] ">
             Home
@@ -74,6 +81,7 @@ import {Recipes} from './recipes/recipes.component';
 @RouteConfig([
   { path: '/', name: 'Index', component: Home, useAsDefault: true },
   { path: '/home',  name: 'Home',  component: Home },
+  { path: '/event', component: Event, name: 'Event' },
   { path: '/redux', component: Recipes, name: 'Recipes' },
 ])
 export class App {

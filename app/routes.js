@@ -17,6 +17,9 @@ import authRoutes from './routes/_authentication.router.js';
 // Load our API routes for the `recipe` component
 import recipeRoutes from './routes/_recipe.router.js';
 
+// Load our API routes for the `event` component
+import eventRoutes from './routes/_event.router.js';
+
 export default (app, router, passport) => {
 
   // ### Express Middlware to use for all requests
@@ -62,6 +65,9 @@ export default (app, router, passport) => {
   // #### RESTful API Routes
 
 	recipeRoutes(app, router);
+
+  // Pass in our Express app and Router
+  eventRoutes(app, router);
 
 	// All of our routes will be prefixed with /api
 	app.use('/api', router);
