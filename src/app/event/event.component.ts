@@ -21,7 +21,13 @@ export class Event {
 
   // Initialize our `eventData.text` to an empty `string`
   eventData = {
-    text: ''
+    title: "",
+    date: "",
+    place: "",
+    tags: [],
+    description: "",
+    guest: [],
+    shoppingList: []
   };
 
   private events: Array<Event> = [];
@@ -37,7 +43,13 @@ export class Event {
             // Populate our `event` array with the `response` data
             this.events = res;
             // Reset `event` input
-            this.eventData.text = '';
+            this.eventData.title = '';
+            this.eventData.date = "";
+            this.eventData.place = "";
+            this.eventData.tags = [];
+            this.eventData.description = "";
+            this.eventData.guest = [];
+            this.eventData.shoppingList = [];
         });
   }
 
@@ -49,7 +61,13 @@ export class Event {
             // Populate our `event` array with the `response` data
             this.events = res;
             // Reset `event` input
-            this.eventData.text = '';
+            this.eventData.title = '';
+            this.eventData.date = "";
+            this.eventData.place = "";
+            this.eventData.tags = [];
+            this.eventData.description = "";
+            this.eventData.guest = [];
+            this.eventData.shoppingList = [];
         });
   }
 

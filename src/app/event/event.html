@@ -13,7 +13,16 @@
           <div class="checkbox" *ngFor="let event of events">
               <label>
                   <input type="checkbox" (click)="deleteEvent(event._id)" bind-checked="false">
-                  {{ event.text }}
+                  {{ event.title }}
+              </label>
+              <label>
+                  {{ event.date }}
+              </label>
+              <label>
+                  {{ event.place }}
+              </label>
+              <label>
+                  {{ event.description }}
               </label>
           </div>
 
@@ -27,7 +36,14 @@
               <div class="form-group">
 
                   <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
-                  <input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" [(ngModel)]="eventData.text" required>
+                  <input type="text" class="form-control input-lg text-center" placeholder="Title" [(ngModel)]="eventData.title" required>
+                  <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
+                  <input type="text" class="form-control input-lg text-center" placeholder="Date" [(ngModel)]="eventData.date" required>
+                  <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
+                  <input type="text" class="form-control input-lg text-center" placeholder="Place" [(ngModel)]="eventData.place" required>
+                  <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
+                  <input type="text" class="form-control input-lg text-center" placeholder="Description" [(ngModel)]="eventData.description" required>
+
               </div>
 
               <!-- createToDo() WILL CREATE NEW TODOS -->

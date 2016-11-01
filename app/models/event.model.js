@@ -16,7 +16,26 @@ import mongoose from 'mongoose';
 
 // Create a `schema` for the `Event` object
 let eventSchema = new mongoose.Schema({
-  text: { type : String }
+  title: { type : String },
+  date: { type : String },
+  place: { type : String },
+  tags: { type: Array },
+  description: { type : String },
+  guest: [{
+    name: {
+      type: String
+    },
+    shoppingList: [{
+      name: {
+        type: String
+      }
+    }]
+  }],
+  shoppingList: [{
+    name: {
+      type: String
+    }
+  }]
 });
 
 // Expose the model so that it can be imported and used in

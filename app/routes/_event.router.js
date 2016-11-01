@@ -34,10 +34,15 @@ export default (app, router) => {
 
     // Create a event item
     .post((req, res) => {
-
+      console.log(req.body);
       Event.create({
 
-        text : req.body.text
+        title: req.body.title,
+        date: req.body.date,
+        place: req.body.place,
+        tags: req.body.tags,
+        description: req.body.description,
+        shoppingList: req.body.shoppingList
 
       }, (err, event) => {
 
@@ -106,8 +111,23 @@ export default (app, router) => {
           res.send(err);
 
         // Only update a field if a new value has been passed in
-        if (req.body.text)
-          event.text = req.body.text;
+        if (req.body.title)
+          event.title = req.body.title;
+
+        if (req.body.date)
+          event.date = req.body.date;
+
+        if (req.body.place)
+          event.place = req.body.place;
+
+        if (req.body.tags)
+          event.tags = req.body.tags;
+
+        if (req.body.description)
+          event.description = req.body.description;
+
+        if (req.body.shoppingList)
+          event.shoppingList = req.body.shoppingList;
 
         // save the event item
         return event.save((err) => {
