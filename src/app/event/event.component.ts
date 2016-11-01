@@ -80,4 +80,34 @@ export class Event {
           this.events = res;
       });
   }
+
+  deleteShoppingListEllement(ellement){
+    // loop through all of the `directions` in the `selectedRecipe`
+    for (let i = 0; i <  this.eventData.shoppingList.length; i++) {
+      // if the `direction` at the current index matches that of the one
+      // the user is trying to delete
+      if (this.eventData.shoppingList[i] === ellement) {
+        // delete the `direction` at the current index
+        this.eventData.shoppingList.splice(i, 1);
+      }
+    }
+  }
+
+  // Whenever the user needs to add a new `direction`, push an
+  // empty `direction` object to the `direction` array on the
+  // `selectedRecipe`
+  newShoppingListEllement() {
+
+    // blank `direction` object
+    let direction = {
+      step: ''
+    };
+
+    // Check to see if the `directions` array exists before
+    // attempting to push a `direction` to it
+    if (!this.eventData.shoppingList)
+    this.eventData.shoppingList = [];
+
+    this.eventData.shoppingList.push(direction);
+  }
 }

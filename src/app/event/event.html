@@ -24,6 +24,11 @@
               <label>
                   {{ event.description }}
               </label>
+              <ul>
+                <li *ngFor="let ellement of event.shoppingList">
+                  {{ ellement.name }} {{ ellement.qte}}
+                </li>
+              </ul>
           </div>
 
       </div>
@@ -44,6 +49,21 @@
                   <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
                   <input type="text" class="form-control input-lg text-center" placeholder="Description" [(ngModel)]="eventData.description" required>
 
+                  <div>
+                    <label>Shopping list</label>
+                    <button (click)="newShoppingListEllement()">
+                        Add a Ellement in the list
+                    </button>
+                    <div *ngFor="let ellement of eventData.shoppingList">
+                      <input [(ngModel)]="ellement.name"
+                        placeholder="Enter a name" type="text">
+                      <input [(ngModel)]="ellement.qte"
+                          placeholder="Enter a quantity" type="number">
+                      <button (click)="deleteShoppingListEllement(ellement)">
+                        X
+                      </button>
+                    </div>
+                  </div>
               </div>
 
               <!-- createToDo() WILL CREATE NEW TODOS -->
