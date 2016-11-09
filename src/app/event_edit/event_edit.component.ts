@@ -11,13 +11,16 @@ import {NgFor} from '@angular/common';
 
 import {Subscription } from 'rxjs';
 
-import {RouteConfig, Router} from '@angular/router-deprecated';
+import {RouteConfig, Router,RouteParams} from '@angular/router-deprecated';
+
+import {RouterActive} from '.././shared/directives/router-active/router-active.directive';
 
 // Create metadata with the `@Component` decorator
 @Component({
     // HTML tag for specifying this component
     selector: 'event_edit',
     // Let Angular 2 know about `Http` and `Event_editService`
+    directives:[RouterActive],
     providers: [...HTTP_PROVIDERS, Event_editService],
     template: require('./event_edit.html')
 })
@@ -39,12 +42,12 @@ export class Event_edit {
   private router : Router;
 
   selectedId;
-  constructor(public event_editService: Event_editService,_router: Router) {
+  constructor(public event_editService: Event_editService,_router: Router,private params:RouteParams) {
     console.log('Event_edit constructor go!');
     this.router = _router;
      //let id = +this.route.snapshot.params['id'];
       //this.event_edits = [];
-      event_editService.getOne("5823194d408d2da5e30163cd")
+      event_editService.getOne(params.get('id'))
         // `Rxjs`; we subscribe to the response
         .subscribe((res) => {
 
