@@ -25,9 +25,6 @@ import {Home} from './home';
 // Import NgFor directive
 import {NgFor} from '@angular/common';
 
-// Import Recipes component
-import {Recipes} from './recipes/recipes.component';
-
 // Import Event component
 import {Event} from './event/event.component';
 
@@ -66,9 +63,6 @@ import {Event_edit} from './event_edit/event_edit.component';
           <button md-button router-active [routerLink]=" ['Home'] ">
             Home
           </button>
-          <button md-button router-active [routerLink]=" ['Recipes'] ">
-            Recipes
-          </button>
       </md-toolbar>
 
       <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading">
@@ -90,7 +84,7 @@ import {Event_edit} from './event_edit/event_edit.component';
   { path: '/home',  name: 'Home',  component: Home },
   { path: '/event', component: Event, name: 'Event' },
   { path: '/event_edit', component: Event_edit, name: 'Event_edit' },
-  { path: '/redux', component: Recipes, name: 'Recipes' },
+  { path: '/event_edit/:id', component: Event_edit, name: 'Event_edit_withId' },
 ])
 export class App {
   angularLogo = 'assets/img/angular-logo.png';

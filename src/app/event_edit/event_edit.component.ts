@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
 
+import {Component} from '@angular/core';
 import {Event_editService} from './event_edit.service';
 
 // We `import` `http` into our `Event_editService` but we can only
@@ -8,6 +8,10 @@ import {HTTP_PROVIDERS} from '@angular/http';
 
 // Import NgFor directive
 import {NgFor} from '@angular/common';
+
+import {Subscription } from 'rxjs';
+
+import {RouteConfig, Router} from '@angular/router-deprecated';
 
 // Create metadata with the `@Component` decorator
 @Component({
@@ -29,12 +33,16 @@ export class Event_edit {
     guest: [],
     shoppingList: []
   };
+  private subscription: Subscription;
 
   private event_edits: Array<Event_edit> = [];
+  private router : Router;
 
-  constructor(public event_editService: Event_editService) {
+  selectedId;
+  constructor(public event_editService: Event_editService,_router: Router) {
     console.log('Event_edit constructor go!');
-
+    this.router = _router;
+     //let id = +this.route.snapshot.params['id'];
       //this.event_edits = [];
       event_editService.getOne("5823194d408d2da5e30163cd")
         // `Rxjs`; we subscribe to the response

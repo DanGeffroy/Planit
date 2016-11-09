@@ -52,11 +52,18 @@ export default (app, router) => {
         // DEBUG
         console.log(`Event created: ${event}`);
 
-        Event.find((err, events) => {
+        Event.findOne({
+          title: req.body.title,
+          date: req.body.date,
+          place: req.body.place,
+          tags: req.body.tags,
+          description: req.body.description,
+          shoppingList: req.body.shoppingList
+        },(err, event) => {
           if(err)
             res.send(err);
 
-          res.json(events);
+          res.json(event);
         });
       });
     })

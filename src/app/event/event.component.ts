@@ -9,6 +9,8 @@ import {HTTP_PROVIDERS} from '@angular/http';
 // Import NgFor directive
 import {NgFor} from '@angular/common';
 
+
+import {RouteConfig, Router} from '@angular/router-deprecated';
 // Create metadata with the `@Component` decorator
 @Component({
     // HTML tag for specifying this component
@@ -29,11 +31,14 @@ export class Event {
     guest: [],
     shoppingList: []
   };
+  router: Router;
+
 
   private events: Array<Event> = [];
 
-  constructor(public eventService: EventService) {
+  constructor(public eventService: EventService, _router:Router) {
     console.log('Event constructor go!');
+    this.router = _router;
 
       //this.events = [];
       eventService.getAll()
@@ -57,17 +62,8 @@ export class Event {
 
       this.eventService.createEvent(this.eventData)
         .subscribe((res) => {
-
-            // Populate our `event` array with the `response` data
-            this.events = res;
-            // Reset `event` input
-            this.eventData.title = '';
-            this.eventData.date = "";
-            this.eventData.place = "";
-            this.eventData.tags = [];
-            this.eventData.description = "";
-            this.eventData.guest = [];
-            this.eventData.shoppingList = [];
+            console.log(res._id);
+             this.router.navigate(['/Event_edit_withId',{id: res._id}]);
         });
   }
 
