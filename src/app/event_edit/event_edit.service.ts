@@ -35,13 +35,13 @@ export class Event_editService {
           .map(res => res.json());
   }
 
-  createEvent_edit(data) {
+  editEvent(data) {
 
     let headers = new Headers();
 
     headers.append('Content-Type', 'application/json');
 
-    return this.http.post('/api/event', JSON.stringify(data),
+    return this.http.put('/api/event/'+data._id, JSON.stringify(data),
           {headers: headers})
         .map(res => res.json());
   }

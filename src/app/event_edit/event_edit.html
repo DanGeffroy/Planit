@@ -1,4 +1,5 @@
-<div class="container">
+
+<div *ngIf="state" class="container">
   <!-- FORM TO CREATE TODOS -->
   <div id="event_edit-form" class="row">
       <div class="col-sm-8 col-sm-offset-2 text-center">
@@ -33,9 +34,28 @@
 
               <!-- createToDo() WILL CREATE NEW TODOS -->
               <button type="submit" class="btn btn-primary btn-lg"
-                >Save</button>
+              (click)="editEvent()">Save</button>
           </form>
       </div>
   </div>
 
+</div>
+
+<div *ngIf="!state" class="container">
+
+  <!-- FORM TO CREATE TODOS -->
+  <div id="event_edit-form" class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <h1>Event not found</h1>
+          <form>
+              <div class="form-group">
+                  <!-- BIND THIS VALUE TO event_editData.text IN ANGULAR -->
+                  <label>Enter your event id to edit it</label>
+                  <input type="text" class="form-control input-lg text-center" [(ngModel)]="TempId" required>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg"
+              (click)="findEvent()">go :D</button>
+          </form>
+      </div>
+  </div>
 </div>

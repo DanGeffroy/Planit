@@ -28,6 +28,7 @@ export class Event_edit {
 
   // Initialize our `event_editData.text` to an empty `string`
   event_editData = {
+    _id:"",
     title: "",
     date: "",
     place: "",
@@ -36,25 +37,38 @@ export class Event_edit {
     guest: [],
     shoppingList: []
   };
+
+  private state : boolean = true;
   private subscription: Subscription;
 
   private event_edits: Array<Event_edit> = [];
   private router : Router;
-
+  private TempId : String = "";
   selectedId;
   constructor(public event_editService: Event_editService,_router: Router,private params:RouteParams) {
     console.log('Event_edit constructor go!');
     this.router = _router;
      //let id = +this.route.snapshot.params['id'];
       //this.event_edits = [];
-      event_editService.getOne(params.get('id'))
-        // `Rxjs`; we subscribe to the response
-        .subscribe((res) => {
+      let id = params.get('id');
+      if(id === null){
+        this.state = false
+      }
+      else{
+        event_editService.getOne(id)
+          // `Rxjs`; we subscribe to the response
+          .subscribe((res) => {
+              // Populate our `event_edit` array with the `response` data
+              this.event_editData = res;
 
-            // Populate our `event_edit` array with the `response` data
-            this.event_editData = res;
+              console.log(this.event_editData._id);
+              if(this.event_editData._id === undefined){
+                this.state = false;
+              }
+          },
+          );
+      }
 
-        });
   }
 
 
@@ -86,5 +100,16 @@ export class Event_edit {
     this.event_editData.shoppingList = [];
 
     this.event_editData.shoppingList.push(direction);
+  }
+
+  editEvent() {
+
+      this.event_editService.editEvent(this.event_editData)
+        .subscribe((res) => {
+            console.log("saved");
+        });
+  }
+  findEvent(){
+       this.router.navigate(['/Event_edit_withId',{id: this.TempId}]);
   }
 }
