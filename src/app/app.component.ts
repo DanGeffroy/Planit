@@ -31,6 +31,9 @@ import {Recipes} from './recipes/recipes.component';
 // Import Event component
 import {Event} from './event/event.component';
 
+// Import Event component
+import {Event_edit} from './event_edit/event_edit.component';
+
 /*
  * App Component
  * Top Level Component
@@ -39,6 +42,7 @@ import {Event} from './event/event.component';
   selector: 'app',
   providers: [  ],
   directives: [ Event,
+                Event_edit,
                 NgFor,
                 RouterActive],
   encapsulation: ViewEncapsulation.None,
@@ -55,6 +59,9 @@ import {Event} from './event/event.component';
           </button>
           <button md-button router-active [routerLink]=" ['Event'] ">
             Event
+          </button>
+          <button md-button router-active [routerLink]=" ['Event_edit'] ">
+            Event_edit
           </button>
           <button md-button router-active [routerLink]=" ['Home'] ">
             Home
@@ -82,6 +89,7 @@ import {Event} from './event/event.component';
   { path: '/', name: 'Index', component: Home, useAsDefault: true },
   { path: '/home',  name: 'Home',  component: Home },
   { path: '/event', component: Event, name: 'Event' },
+  { path: '/event_edit', component: Event_edit, name: 'Event_edit' },
   { path: '/redux', component: Recipes, name: 'Recipes' },
 ])
 export class App {

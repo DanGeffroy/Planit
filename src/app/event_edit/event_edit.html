@@ -1,0 +1,41 @@
+<div class="container">
+  <!-- FORM TO CREATE TODOS -->
+  <div id="event_edit-form" class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+          <form>
+              <div class="form-group">
+
+                  <!-- BIND THIS VALUE TO event_editData.text IN ANGULAR -->
+                  <input type="text" class="form-control input-lg text-center" [(ngModel)]="event_editData.title" required>
+                  <!-- BIND THIS VALUE TO event_editData.text IN ANGULAR -->
+                  <input type="text" class="form-control input-lg text-center" [(ngModel)]="event_editData.date" required>
+                  <!-- BIND THIS VALUE TO event_editData.text IN ANGULAR -->
+                  <input type="text" class="form-control input-lg text-center" [(ngModel)]="event_editData.place" required>
+                  <!-- BIND THIS VALUE TO event_editData.text IN ANGULAR -->
+                  <input type="text" class="form-control input-lg text-center" [(ngModel)]="event_editData.description" required>
+
+                  <div>
+                    <label>Shopping list</label>
+                    <button (click)="newShoppingListEllement()">
+                        Add a Ellement in the list
+                    </button>
+                    <div *ngFor="let ellement of event_editData.shoppingList">
+                      <input [(ngModel)]="ellement.name"
+                        placeholder="Enter a name" type="text">
+                      <input [(ngModel)]="ellement.qte"
+                          placeholder="Enter a quantity" type="number">
+                      <button (click)="deleteShoppingListEllement(ellement)">
+                        X
+                      </button>
+                    </div>
+                  </div>
+              </div>
+
+              <!-- createToDo() WILL CREATE NEW TODOS -->
+              <button type="submit" class="btn btn-primary btn-lg"
+                >Save</button>
+          </form>
+      </div>
+  </div>
+
+</div>

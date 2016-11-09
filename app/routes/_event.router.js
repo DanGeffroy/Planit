@@ -85,7 +85,7 @@ export default (app, router) => {
     .get((req, res) => {
 
       // Use mongoose to a single event item by id in the database
-      Event.findOne(req.params.event_id, (err, event) => {
+      Event.findOne({"_id" : req.params.event_id}, (err, event) => {
 
         if(err)
           res.send(err);
