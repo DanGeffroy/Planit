@@ -29,7 +29,7 @@ You must have mongo installed and running :)
 
 ```bash
 # add required global libraries
-$ npm install -g typings webpack webpack-dev-server concurrently
+$ npm install -g typings webpack webpack-dev-server concurrently gulp
 
 # install the repo with npm
 $ npm install
