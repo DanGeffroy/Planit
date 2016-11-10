@@ -43,32 +43,39 @@ export class Event_edit {
 
   private event_edits: Array<Event_edit> = [];
   private router : Router;
-  private TempId : String = "";
+  private tmpId : String = null;
+  private event_editService: Event_editService;
   selectedId;
-  constructor(public event_editService: Event_editService,_router: Router,private params:RouteParams) {
+  constructor(public _event_editService: Event_editService,_router: Router,private params:RouteParams) {
     console.log('Event_edit constructor go!');
     this.router = _router;
      //let id = +this.route.snapshot.params['id'];
       //this.event_edits = [];
-      let id = params.get('id');
-      if(id === null){
-        this.state = false
-      }
-      else{
-        event_editService.getOne(id)
-          // `Rxjs`; we subscribe to the response
-          .subscribe((res) => {
-              // Populate our `event_edit` array with the `response` data
-              this.event_editData = res;
+      this.tmpId = params.get('id');
+      this.event_editService = _event_editService;
+      this.updateView();
 
-              console.log(this.event_editData._id);
-              if(this.event_editData._id === undefined){
-                this.state = false;
-              }
-          },
-          );
-      }
+  }
 
+  updateView(){
+    if(this.tmpId === null){
+      this.state = false
+    }
+    else{
+      this.event_editService.getOne(this.tmpId)
+        // `Rxjs`; we subscribe to the response
+        .subscribe((res) => {
+            // Populate our `event_edit` array with the `response` data
+            this.event_editData = res;
+            if(this.event_editData._id === undefined){
+              this.state = false;
+            }
+            else{
+              this.state = true;
+            }
+        }
+        );
+    }
   }
 
 
@@ -110,6 +117,6 @@ export class Event_edit {
         });
   }
   findEvent(){
-       this.router.navigate(['/Event_edit_withId',{id: this.TempId}]);
+       this.updateView();
   }
 }
