@@ -62,6 +62,8 @@ export class Event {
 
       this.eventService.createEvent(this.eventData)
         .subscribe((res) => {
+          console.log("createEvent method")
+          console.log(res)
             console.log(res._id);
              this.router.navigate(['/Event_edit_withId',{id: res._id}]);
         });
@@ -96,7 +98,6 @@ export class Event {
 
     // blank `direction` object
     let direction = {
-      step: ''
     };
 
     // Check to see if the `directions` array exists before
