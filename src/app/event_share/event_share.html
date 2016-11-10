@@ -1,0 +1,51 @@
+
+<div *ngIf="state" class="container">
+  <!-- FORM TO CREATE TODOS -->
+  <div id="event_share-form" class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+          <form>
+              <div class="form-group">
+
+                  <!-- BIND THIS VALUE TO event_shareData.text IN ANGULAR -->
+                  <h2>{{event_shareData.title}}</h2>
+                  <!-- BIND THIS VALUE TO event_shareData.text IN ANGULAR -->
+                  <h3>{{event_shareData.description}}</h3>
+                  <!-- BIND THIS VALUE TO event_shareData.text IN ANGULAR -->
+                  <h4>Date :</h4>
+                  <label>{{event_shareData.date}}</label>
+                  <!-- BIND THIS VALUE TO event_shareData.text IN ANGULAR -->
+                  <h4>Place :</h4>
+                  <label>{{event_shareData.place}}</label>
+
+
+                  <div>
+                    <h4>Shopping list</h4>
+                    <div *ngFor="let ellement of event_shareData.shoppingList">
+                      <p>{{ellement.name}} qte : {{ellement.qte}}</p>
+                    </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+
+</div>
+
+<div *ngIf="!state" class="container">
+
+  <!-- FORM TO CREATE TODOS -->
+  <div id="event_share-form" class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <h1>Event not found</h1>
+          <form>
+              <div class="form-group">
+                  <!-- BIND THIS VALUE TO event_shareData.text IN ANGULAR -->
+                  <label>Enter an event id to view it</label>
+                  <input type="text" class="form-control input-lg text-center" [(ngModel)]="tmpId" required>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg"
+              (click)="findEvent()">go :D</button>
+          </form>
+      </div>
+  </div>
+</div>

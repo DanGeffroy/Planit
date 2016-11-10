@@ -28,8 +28,11 @@ import {NgFor} from '@angular/common';
 // Import Event component
 import {Event} from './event/event.component';
 
-// Import Event component
+// Import Event_edit component
 import {Event_edit} from './event_edit/event_edit.component';
+
+// Import Event_share component
+import {Event_share} from './event_share/event_share.component';
 
 /*
  * App Component
@@ -40,6 +43,7 @@ import {Event_edit} from './event_edit/event_edit.component';
   providers: [  ],
   directives: [ Event,
                 Event_edit,
+                Event_share,
                 NgFor,
                 RouterActive],
   encapsulation: ViewEncapsulation.None,
@@ -59,6 +63,9 @@ import {Event_edit} from './event_edit/event_edit.component';
           </button>
           <button md-button router-active [routerLink]=" ['Event_edit'] ">
             Event_edit
+          </button>
+          <button md-button router-active [routerLink]=" ['Event_share'] ">
+            Event_share
           </button>
           <button md-button router-active [routerLink]=" ['Home'] ">
             Home
@@ -85,6 +92,8 @@ import {Event_edit} from './event_edit/event_edit.component';
   { path: '/event', component: Event, name: 'Event' },
   { path: '/event_edit', component: Event_edit, name: 'Event_edit' },
   { path: '/event_edit/:id', component: Event_edit, name: 'Event_edit_withId' },
+  { path: '/event_share', component: Event_share, name: 'Event_share' },
+  { path: '/event_share/:id', component: Event_share, name: 'Event_share_withId' },
 ])
 export class App {
   angularLogo = 'assets/img/angular-logo.png';
