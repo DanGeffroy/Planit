@@ -51,4 +51,13 @@ export class Event_shareService {
       return this.http.delete(`/api/event_share/${id}`)
           .map(res => res.json());
   }
+
+
+  addNewAttendee(newAttendee, id){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.put('/api/event/'+id+'/addNewAttendee/', JSON.stringify(newAttendee),
+          {headers: headers})
+        .map(res => res.json());
+  }
 }

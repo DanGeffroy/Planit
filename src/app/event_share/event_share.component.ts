@@ -34,7 +34,7 @@ export class Event_share {
     place: "",
     tags: [],
     description: "",
-    guest: [],
+    attendees: [],
     shoppingList: []
   };
 
@@ -46,6 +46,8 @@ export class Event_share {
   private tmpId : String = null;
   private event_shareService: Event_shareService;
   selectedId;
+
+  private newAttendees = [];
   constructor(public _event_shareService: Event_shareService,_router: Router,private params:RouteParams) {
     console.log('Event_share constructor go!');
     this.router = _router;
@@ -77,44 +79,39 @@ export class Event_share {
         );
     }
   }
-
-
-  deleteShoppingListEllement(ellement){
-    // loop through all of the `directions` in the `selectedRecipe`
-    for (let i = 0; i <  this.event_shareData.shoppingList.length; i++) {
-      // if the `direction` at the current index matches that of the one
-      // the user is trying to delete
-      if (this.event_shareData.shoppingList[i] === ellement) {
-        // delete the `direction` at the current index
-        this.event_shareData.shoppingList.splice(i, 1);
-      }
-    }
-  }
-
   // Whenever the user needs to add a new `direction`, push an
   // empty `direction` object to the `direction` array on the
   // `selectedRecipe`
-  newShoppingListEllement() {
+  newAttendee() {
 
     // blank `direction` object
     let direction = {
-      step: ''
     };
 
     // Check to see if the `directions` array exists before
     // attempting to push a `direction` to it
-    if (!this.event_shareData.shoppingList)
-    this.event_shareData.shoppingList = [];
+    if (!this.newAttendees)
+    this.newAttendees = [];
 
-    this.event_shareData.shoppingList.push(direction);
+    this.newAttendees.push(direction);
   }
+  addNewAttendee(newAttendee){
+    this.event_shareService.addNewAttendee(newAttendee, this.tmpId)
+      // `Rxjs`; we subscribe to the response
+      .subscribe((res) => {
+          // Populate our `event_share` array with the `response` data
+          this.event_shareData = res;
+          // loop through all of the `newAttendees`
+          for (let i = 0; i <  this.newAttendees.length; i++) {
+            // if the `attendee` at the current index matches
+            if (this.newAttendees[i] === newAttendee) {
+              // delete the `atttendee` at the current index
+              this.newAttendees.splice(i, 1);
+            }
+          }
+      }
+      );
 
-  editEvent() {
-
-      this.event_shareService.editEvent(this.event_shareData)
-        .subscribe((res) => {
-            console.log("saved");
-        });
   }
   findEvent(){
        this.updateView();

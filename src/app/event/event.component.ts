@@ -28,7 +28,7 @@ export class Event {
     place: "",
     tags: [],
     description: "",
-    guest: [],
+    attendees: [],
     shoppingList: []
   };
   router: Router;
@@ -53,7 +53,7 @@ export class Event {
             this.eventData.place = "";
             this.eventData.tags = [];
             this.eventData.description = "";
-            this.eventData.guest = [];
+            this.eventData.attendees = [];
             this.eventData.shoppingList = [];
         });
   }

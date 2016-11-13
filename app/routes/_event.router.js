@@ -42,7 +42,8 @@ export default (app, router) => {
         place: req.body.place,
         tags: req.body.tags,
         description: req.body.description,
-        shoppingList: req.body.shoppingList
+        shoppingList: req.body.shoppingList,
+        attendees: req.body.attendees
 
       }, (err, event) => {
 
@@ -122,6 +123,8 @@ export default (app, router) => {
 
         if (req.body.shoppingList)
           event.shoppingList = req.body.shoppingList;
+        if (req.body.attendees)
+          event.attendees = req.body.attendees;
 
         // save the event item
         return event.save((err) => {
@@ -161,4 +164,42 @@ export default (app, router) => {
         });
       });
     });
+
+
+    router.route('/event/:event_id/addNewAttendee/')
+
+
+      // ### add a new attendee to the event
+
+      // Accessed at PUT http://localhost:8080/api/event/:event_id/newAttendee
+      .put((req, res) => {
+
+        // use our event model to find the event item we want
+        Event.findOne({
+
+          '_id' : req.params.event_id
+
+        }, (err, event) => {
+
+          if (err)
+            res.send(err);
+          if (req.body)
+            event.attendees.push(req.body);
+
+          // save the event item
+          return event.save((err) => {
+
+            if (err)
+              res.send(err);
+
+            return res.send(event);
+
+          });
+        });
+      });
+
+
+
+
+
 };

@@ -24,6 +24,23 @@
                       <p>{{ellement.name}} qte : {{ellement.qte}}</p>
                     </div>
                   </div>
+                  <div>
+                    <h4>Attendees</h4>
+
+                    <div *ngFor="let attendee of event_shareData.attendees">
+                      <label>{{attendee.name}}</label>
+                    </div>
+                    <button (click)="newAttendee()">
+                        join the event
+                    </button>
+                    <div *ngFor="let newAttendee of newAttendees">
+                      <input [(ngModel)]="newAttendee.name"
+                        placeholder="Enter a name" type="text">
+                        <button (click)="addNewAttendee(newAttendee)">
+                          &#10004;
+                        </button>
+                    </div>
+                  </div>
               </div>
           </form>
       </div>

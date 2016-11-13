@@ -21,11 +21,11 @@ let eventSchema = new mongoose.Schema({
   place: { type : String },
   tags: { type: Array },
   description: { type : String },
-  guest: [{
+  attendees: [{
     name: {
       type: String
     },
-    shoppingList: [String]
+    shoppingList: [{name :String, qte:Number}]
   }],
   shoppingList: [{name :String, qte:Number}]
 });

@@ -34,7 +34,7 @@ export class Event_edit {
     place: "",
     tags: [],
     description: "",
-    guest: [],
+    attendees: [],
     shoppingList: []
   };
 
