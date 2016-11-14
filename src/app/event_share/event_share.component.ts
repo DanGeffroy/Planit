@@ -86,8 +86,12 @@ export class Event_share {
 
     // blank `direction` object
     let direction = {
+      shoppingList: []
     };
-
+    direction.shoppingList =  this.event_shareData.shoppingList;
+    direction.shoppingList .forEach(function(element) {
+      element.qte = 0
+    });
     // Check to see if the `directions` array exists before
     // attempting to push a `direction` to it
     if (!this.newAttendees)
@@ -115,5 +119,13 @@ export class Event_share {
   }
   findEvent(){
        this.updateView();
+  }
+
+  decrementShoppingListEllement(ellement){
+    ellement.qte--;
+  }
+
+  incrementShoppingListEllement(ellement){
+    ellement.qte++;
   }
 }

@@ -36,6 +36,12 @@
                     <div *ngFor="let newAttendee of newAttendees">
                       <input [(ngModel)]="newAttendee.name"
                         placeholder="Enter a name" type="text">
+                        <div *ngFor="let ellement of newAttendee.shoppingList">
+                          <p>{{ellement.name}} qte :
+                             <button (click)="decrementShoppingListEllement(ellement)"> - </button>
+                             <input [(ngModel)]="ellement.qte" min="0" type="number">
+                             <button (click)="incrementShoppingListEllement(ellement)"> + </button></p>
+                        </div>
                         <button (click)="addNewAttendee(newAttendee)">
                           &#10004;
                         </button>
