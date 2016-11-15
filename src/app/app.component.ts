@@ -80,8 +80,7 @@ import {Event_share} from './event_share/event_share.component';
       <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
 
       <footer>
-        <img [src]="angularLogo" width="7%">
-        <span>Angular 2 MEAN Webpack Starter by <a [href]="url">@datatype_void</a></span>
+        <span>Made with &#9825; by <a [href]="url">Dan</a></span>
       </footer>
     </md-content>
   `
@@ -98,7 +97,7 @@ import {Event_share} from './event_share/event_share.component';
 export class App {
   angularLogo = 'assets/img/angular-logo.png';
   name = 'Angular 2 MEAN Webpack Starter';
-  url = 'https://twitter.com/datatype_void';
+  url = 'https://github.com/DanGeffroy/';
 
   // Pass in our application `state`
   // Alternative to using `redux`

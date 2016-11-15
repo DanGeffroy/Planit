@@ -17,7 +17,8 @@ import {RouteConfig, Router} from '@angular/router-deprecated';
     selector: 'event',
     // Let Angular 2 know about `Http` and `EventService`
     providers: [...HTTP_PROVIDERS, EventService],
-    template: require('./event.html')
+    template: require('./event.html'),
+    styles: [ require('./event.css') ],
 })
 export class Event {
 
