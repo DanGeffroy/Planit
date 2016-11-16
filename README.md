@@ -57,6 +57,20 @@ The app is now running right here :  [http://localhost:3000/](http://localhost:3
     <img src="https://media.giphy.com/media/hsBZfDG7wiWHu/giphy.gif">
 </p>
 
-
+## TODO
+- init app with vulgar : &#10004;
+- change the todo model into a event model : &#10004;
+- creation page : &#10004;
+- edit page : &#10004;
+- share page : &#10004;
+- 'join the event' feature : &#10004;
+- 'choose chat you bring' feature : &#10004;
+- sync the two shopping list qte, qte that will be bring/qte you want
+- add a password to protect the event
+- make the app more sexy
+  - choose between material2 and materializecss
+  - make a home page
+  - work on global aesthetic
+  - work on specific part
 
 Made with :heart: by Dan
