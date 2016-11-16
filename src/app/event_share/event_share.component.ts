@@ -88,7 +88,7 @@ export class Event_share {
     let direction = {
       shoppingList: []
     };
-    direction.shoppingList =  this.event_shareData.shoppingList;
+    direction.shoppingList =  JSON.parse(JSON.stringify(this.event_shareData.shoppingList));
     direction.shoppingList .forEach(function(element) {
       element.qte = 0
     });

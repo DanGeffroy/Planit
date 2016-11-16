@@ -21,7 +21,7 @@
                   <div>
                     <h4>Shopping list</h4>
                     <div *ngFor="let ellement of event_shareData.shoppingList">
-                      <p>{{ellement.name}} qte : {{ellement.qte}}</p>
+                      <p>{{ellement.name}} qte : {{ellement.realqte}}/{{ellement.qte}}</p>
                     </div>
                   </div>
                   <div>
@@ -36,11 +36,11 @@
                     <div *ngFor="let newAttendee of newAttendees">
                       <input [(ngModel)]="newAttendee.name"
                         placeholder="Enter a name" type="text">
-                        <div *ngFor="let ellement of newAttendee.shoppingList">
-                          <p>{{ellement.name}} qte :
-                             <button (click)="decrementShoppingListEllement(ellement)"> - </button>
-                             <input [(ngModel)]="ellement.qte" min="0" type="number">
-                             <button (click)="incrementShoppingListEllement(ellement)"> + </button></p>
+                        <div *ngFor="let ellement2 of newAttendee.shoppingList">
+                          <p>{{ellement2.name}} qte :
+                             <button (click)="decrementShoppingListEllement(ellement2)"> - </button>
+                             <input [(ngModel)]="ellement2.qte" min="0" type="number">
+                             <button (click)="incrementShoppingListEllement(ellement2)"> + </button></p>
                         </div>
                         <button (click)="addNewAttendee(newAttendee)">
                           &#10004;

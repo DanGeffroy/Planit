@@ -183,8 +183,22 @@ export default (app, router) => {
 
           if (err)
             res.send(err);
-          if (req.body)
+          if (req.body){
             event.attendees.push(req.body);
+
+
+            // loop through all of the `newAttendees`
+            for (let i = 0; i <  event.shoppingList.length; i++) {
+              for (let w = 0; w <  req.body.shoppingList.length; w++) {
+                // if both element are the same
+                if (event.shoppingList[i]._id == req.body.shoppingList[w]._id) {
+                  // increment the real qte
+                  event.shoppingList[i].realqte += req.body.shoppingList[w].qte;
+                }
+              }
+            }
+          }
+
 
           // save the event item
           return event.save((err) => {

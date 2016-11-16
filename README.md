@@ -51,7 +51,7 @@ $ npm start
 $ gulp serve
 ```
 
-The app is now running right here :  [http://localhost:3000/](http://localhost:3000/) 
+The app is now running right here :  [http://localhost:3000/](http://localhost:3000/)
 
 <p align="center">
     <img src="https://media.giphy.com/media/hsBZfDG7wiWHu/giphy.gif">
@@ -65,7 +65,7 @@ The app is now running right here :  [http://localhost:3000/](http://localhost:3
 - share page : &#10004;
 - 'join the event' feature : &#10004;
 - 'choose chat you bring' feature : &#10004;
-- sync the two shopping list qte, qte that will be bring/qte you want
+- sync the two shopping list qte, qte that will be bring/qte you want : &#10004;
 - add a password to protect the event
 - make the app more sexy
   - choose between material2 and materializecss

@@ -99,6 +99,7 @@ export class Event {
 
     // blank `direction` object
     let direction = {
+      realqte : 0
     };
 
     // Check to see if the `directions` array exists before

@@ -27,7 +27,7 @@ let eventSchema = new mongoose.Schema({
     },
     shoppingList: [{name :String, qte:Number}]
   }],
-  shoppingList: [{name :String, qte:Number}]
+  shoppingList: [{name :String, qte:Number,realqte: Number}]
 });
 
 // Expose the model so that it can be imported and used in
