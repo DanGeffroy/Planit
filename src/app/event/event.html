@@ -2,35 +2,6 @@
 
   <div class="row"></div>
 
-  <!-- TODO LIST -->
-  <div id="event-list" class="row">
-      <div class="col-sm-4 col-sm-offset-4">
-
-          <!-- LOOP OVER THE TODOS IN $scope.events -->
-          <div class="checkbox" *ngFor="let event of events">
-              <label>
-                  <input type="checkbox" (click)="deleteEvent(event._id)" bind-checked="false">
-                  {{ event.title }}
-              </label>
-              <label>
-                  {{ event.date }}
-              </label>
-              <label>
-                  {{ event.place }}
-              </label>
-              <label>
-                  {{ event.description }}
-              </label>
-              <ul>
-                <li *ngFor="let ellement of event.shoppingList">
-                  {{ ellement.name }} {{ ellement.qte}}
-                </li>
-              </ul>
-          </div>
-
-      </div>
-  </div>
-
   <!-- FORM TO CREATE event -->
   <md-card class="demo-card demo-basic">
     <md-toolbar color="primary">Create a new event</md-toolbar>
@@ -60,6 +31,11 @@
                             <button md-mini-fab (click)="deleteShoppingListEllement(ellement)">
                               X
                             </button>
+                          </md-list-item>
+
+                          <md-list-item>
+                            <md-list-item>  <md-input class="demo-full-width" type="pasword"placeholder="Password" [(ngModel)]="eventData.password"></md-input></md-list-item>
+
                           </md-list-item>
                         </md-list>
 

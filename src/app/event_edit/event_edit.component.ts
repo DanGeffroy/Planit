@@ -1,8 +1,8 @@
 
 import {Component} from '@angular/core';
-import {Event_editService} from './event_edit.service';
+import {EventService} from '../event.service';
 
-// We `import` `http` into our `Event_editService` but we can only
+// We `import` `http` into our `EventService` but we can only
 // specify providers within our component
 import {HTTP_PROVIDERS} from '@angular/http';
 
@@ -19,9 +19,9 @@ import {RouterActive} from '.././shared/directives/router-active/router-active.d
 @Component({
     // HTML tag for specifying this component
     selector: 'event_edit',
-    // Let Angular 2 know about `Http` and `Event_editService`
+    // Let Angular 2 know about `Http` and `EventService`
     directives:[RouterActive],
-    providers: [...HTTP_PROVIDERS, Event_editService],
+    providers: [...HTTP_PROVIDERS, EventService],
     template: require('./event_edit.html')
 })
 export class Event_edit {
@@ -30,6 +30,7 @@ export class Event_edit {
   event_editData = {
     _id:"",
     title: "",
+    password:"",
     date: "",
     place: "",
     tags: [],
@@ -44,25 +45,27 @@ export class Event_edit {
   private event_edits: Array<Event_edit> = [];
   private router : Router;
   private tmpId : String = null;
-  private event_editService: Event_editService;
+  private tmpPassword : String = null;
+  private eventService: EventService;
   selectedId;
-  constructor(public _event_editService: Event_editService,_router: Router,private params:RouteParams) {
+  constructor(public _eventService: EventService,_router: Router,private params:RouteParams) {
     console.log('Event_edit constructor go!');
     this.router = _router;
      //let id = +this.route.snapshot.params['id'];
       //this.event_edits = [];
       this.tmpId = params.get('id');
-      this.event_editService = _event_editService;
+      this.tmpPassword = params.get('password');
+      this.eventService = _eventService;
       this.updateView();
 
   }
 
   updateView(){
-    if(this.tmpId === null){
+    if(this.tmpId === null || this.tmpPassword === null){
       this.state = false
     }
     else{
-      this.event_editService.getOne(this.tmpId)
+      this.eventService.getOneWithPassword(this.tmpId,this.tmpPassword)
         // `Rxjs`; we subscribe to the response
         .subscribe((res) => {
             // Populate our `event_edit` array with the `response` data
@@ -110,13 +113,19 @@ export class Event_edit {
   }
 
   editEvent() {
-
-      this.event_editService.editEvent(this.event_editData)
+      this.eventService.editEvent(this.event_editData)
         .subscribe((res) => {
             console.log("saved");
         });
   }
   findEvent(){
        this.updateView();
+  }
+  deleteEvent() {
+
+    this.eventService.deleteEvent(this.event_editData._id,this.event_editData.password)
+      .subscribe((res) => {
+         this.router.navigate(['/Event']);
+      });
   }
 }

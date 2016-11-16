@@ -38,6 +38,7 @@ export default (app, router) => {
       Event.create({
 
         title: req.body.title,
+        password : req.body.password,
         date: req.body.date,
         place: req.body.place,
         tags: req.body.tags,
@@ -71,16 +72,30 @@ export default (app, router) => {
           res.json(event);
       });
     });
+    router.route('/event/:event_id/')
 
-  router.route('/event/:event_id')
+      .get((req, res) => {
+
+        // Use mongoose to a single event item by id in the database
+        Event.findOne({"_id" : req.params.event_id}, (err, event) => {
+
+          if(err){
+            res.send(err);
+            event.password = "";
+          }
+          else
+            res.json(event);
+        });
+      });
+  router.route('/event/:event_id/:password')
 
     // ### Get a event item by ID
 
-    // Accessed at GET http://localhost:8080/api/event/:event_id
+    // Accessed at GET http://localhost:8080/api/event/:event_id/:password
     .get((req, res) => {
 
       // Use mongoose to a single event item by id in the database
-      Event.findOne({"_id" : req.params.event_id}, (err, event) => {
+      Event.findOne({"_id" : req.params.event_id, "password": req.params.password}, (err, event) => {
 
         if(err)
           res.send(err);
@@ -92,13 +107,15 @@ export default (app, router) => {
 
     // ### Update a event item by ID
 
-    // Accessed at PUT http://localhost:8080/api/event/:event_id
+    // Accessed at PUT http://localhost:8080/api/event/:event_id/:password
     .put((req, res) => {
 
       // use our event model to find the event item we want
+
       Event.findOne({
 
-        '_id' : req.params.event_id
+        '_id' : req.params.event_id,
+        'password' : req.params.password
 
       }, (err, event) => {
 
@@ -148,7 +165,8 @@ export default (app, router) => {
 
       Event.remove({
 
-        _id : req.params.event_id
+        _id : req.params.event_id,
+        password : req.params.password
       }, (err, event) => {
 
         if(err)
@@ -166,7 +184,7 @@ export default (app, router) => {
     });
 
 
-    router.route('/event/:event_id/addNewAttendee/')
+    router.route('/addNewAttendee/:event_id')
 
 
       // ### add a new attendee to the event
@@ -180,7 +198,6 @@ export default (app, router) => {
           '_id' : req.params.event_id
 
         }, (err, event) => {
-
           if (err)
             res.send(err);
           if (req.body){
@@ -198,15 +215,12 @@ export default (app, router) => {
               }
             }
           }
-
-
           // save the event item
           return event.save((err) => {
-
             if (err)
               res.send(err);
-
-            return res.send(event);
+            else
+              return res.send(event);
 
           });
         });

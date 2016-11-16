@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-import {EventService} from './event.service';
+import {EventService} from '../event.service';
 
 // We `import` `http` into our `EventService` but we can only
 // specify providers within our component
@@ -25,6 +25,7 @@ export class Event {
   // Initialize our `eventData.text` to an empty `string`
   eventData = {
     title: "",
+    password:"",
     date: "",
     place: "",
     tags: [],
@@ -66,18 +67,8 @@ export class Event {
           console.log("createEvent method")
           console.log(res)
             console.log(res._id);
-             this.router.navigate(['/Event_edit_withId',{id: res._id}]);
+             this.router.navigate(['/Event_edit_withId',{id: res._id, password : res.password}]);
         });
-  }
-
-  deleteEvent(id) {
-
-    this.eventService.deleteEvent(id)
-      .subscribe((res) => {
-
-          // Populate our `event` array with the `response` data
-          this.events = res;
-      });
   }
 
   deleteShoppingListEllement(ellement){

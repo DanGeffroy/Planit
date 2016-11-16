@@ -90,7 +90,7 @@ import {Event_share} from './event_share/event_share.component';
   { path: '/home',  name: 'Home',  component: Home },
   { path: '/event', component: Event, name: 'Event' },
   { path: '/event_edit', component: Event_edit, name: 'Event_edit' },
-  { path: '/event_edit/:id', component: Event_edit, name: 'Event_edit_withId' },
+  { path: '/event_edit/:id/:password', component: Event_edit, name: 'Event_edit_withId' },
   { path: '/event_share', component: Event_share, name: 'Event_share' },
   { path: '/event_share/:id', component: Event_share, name: 'Event_share_withId' },
 ])

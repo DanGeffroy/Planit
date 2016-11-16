@@ -17,6 +17,7 @@ import mongoose from 'mongoose';
 // Create a `schema` for the `Event` object
 let eventSchema = new mongoose.Schema({
   title: { type : String },
+  password: {type : String},
   date: { type : String },
   place: { type : String },
   tags: { type: Array },

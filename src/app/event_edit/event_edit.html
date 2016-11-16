@@ -39,6 +39,8 @@
               <!-- createToDo() WILL CREATE NEW TODOS -->
               <button type="submit" class="btn btn-primary btn-lg"
               (click)="editEvent()">Save</button>
+              <button type="submit" class="btn btn-primary btn-lg"
+              (click)="deleteEvent()">Delete</button>
           </form>
       </div>
   </div>
@@ -56,6 +58,8 @@
                   <!-- BIND THIS VALUE TO event_editData.text IN ANGULAR -->
                   <label>Enter your event id to edit it</label>
                   <input type="text" class="form-control input-lg text-center" [(ngModel)]="tmpId" required>
+                  <label>Enter your event password</label>
+                  <input type="text" class="form-control input-lg text-center" [(ngModel)]="tmpPassword" required>
               </div>
               <button type="submit" class="btn btn-primary btn-lg"
               (click)="findEvent()">go :D</button>

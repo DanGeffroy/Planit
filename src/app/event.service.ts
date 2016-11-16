@@ -27,7 +27,6 @@ export class EventService {
           // Reference: https://github.com/Reactive-Extensions/RxJS
           .map(res => res.json());
   }
-
   createEvent(data) {
 
     let headers = new Headers();
@@ -38,10 +37,44 @@ export class EventService {
           {headers: headers})
         .map(res => res.json());
   }
-
-  deleteEvent(id) {
-
-      return this.http.delete(`/api/event/${id}`)
+  getOneWithPassword(id,password) {
+      return this.http.get('/api/event/'+id+'/'+password)
+          // map the `HTTP` response from `raw` to `JSON` format
+          // using `RxJs`
+          // Reference: https://github.com/Reactive-Extensions/RxJS
           .map(res => res.json());
+  }
+  getOne(id) {
+      return this.http.get('/api/event/'+id)
+          // map the `HTTP` response from `raw` to `JSON` format
+          // using `RxJs`
+          // Reference: https://github.com/Reactive-Extensions/RxJS
+          .map(res => res.json());
+  }
+
+  editEvent(data) {
+
+    let headers = new Headers();
+
+    headers.append('Content-Type', 'application/json');
+    return this.http.put('/api/event/'+data._id+"/"+data.password, JSON.stringify(data),
+          {headers: headers})
+        .map(res => res.json());
+  }
+
+  deleteEvent(id, password) {
+
+      return this.http.delete(`/api/event/${id}/${password}`)
+          .map(res => res.json());
+  }
+
+
+  addNewAttendee(newAttendee, id){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    console.log(id)
+    return this.http.put('/api/addNewAttendee/'+ id, JSON.stringify(newAttendee),
+          {headers: headers})
+        .map(res => res.json());
   }
 }

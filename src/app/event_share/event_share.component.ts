@@ -1,8 +1,8 @@
 
 import {Component} from '@angular/core';
-import {Event_shareService} from './event_share.service';
+import {EventService} from '../event.service';
 
-// We `import` `http` into our `Event_shareService` but we can only
+// We `import` `http` into our `EventService` but we can only
 // specify providers within our component
 import {HTTP_PROVIDERS} from '@angular/http';
 
@@ -19,9 +19,9 @@ import {RouterActive} from '.././shared/directives/router-active/router-active.d
 @Component({
     // HTML tag for specifying this component
     selector: 'event_share',
-    // Let Angular 2 know about `Http` and `Event_shareService`
+    // Let Angular 2 know about `Http` and `EventService`
     directives:[RouterActive],
-    providers: [...HTTP_PROVIDERS, Event_shareService],
+    providers: [...HTTP_PROVIDERS, EventService],
     template: require('./event_share.html')
 })
 export class Event_share {
@@ -44,17 +44,17 @@ export class Event_share {
   private event_shares: Array<Event_share> = [];
   private router : Router;
   private tmpId : String = null;
-  private event_shareService: Event_shareService;
+  private eventService: EventService;
   selectedId;
 
   private newAttendees = [];
-  constructor(public _event_shareService: Event_shareService,_router: Router,private params:RouteParams) {
+  constructor(public _eventService: EventService,_router: Router,private params:RouteParams) {
     console.log('Event_share constructor go!');
     this.router = _router;
      //let id = +this.route.snapshot.params['id'];
       //this.event_shares = [];
       this.tmpId = params.get('id');
-      this.event_shareService = _event_shareService;
+      this.eventService = _eventService;
       this.updateView();
 
   }
@@ -64,7 +64,7 @@ export class Event_share {
       this.state = false
     }
     else{
-      this.event_shareService.getOne(this.tmpId)
+      this.eventService.getOne(this.tmpId)
         // `Rxjs`; we subscribe to the response
         .subscribe((res) => {
             // Populate our `event_share` array with the `response` data
@@ -100,7 +100,7 @@ export class Event_share {
     this.newAttendees.push(direction);
   }
   addNewAttendee(newAttendee){
-    this.event_shareService.addNewAttendee(newAttendee, this.tmpId)
+    this.eventService.addNewAttendee(newAttendee, this.tmpId)
       // `Rxjs`; we subscribe to the response
       .subscribe((res) => {
           // Populate our `event_share` array with the `response` data
