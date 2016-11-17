@@ -101,7 +101,7 @@ export class Event_edit {
 
     // blank `direction` object
     let direction = {
-      step: ''
+      realqte : 0
     };
 
     // Check to see if the `directions` array exists before
