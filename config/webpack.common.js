@@ -169,6 +169,13 @@ module.exports = {
   //
   // See: http://webpack.github.io/docs/configuration.html#plugins
   plugins: [
+    
+    new webpack.ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery",
+          "window.jQuery": "jquery",
+          Hammer: "hammerjs/hammer"
+      })
 
     // Plugin: ForkCheckerPlugin
     // Description: Do type checking in a separate process, so webpack don't need to wait.
