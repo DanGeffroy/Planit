@@ -3,49 +3,48 @@
   <div class="row"></div>
 
   <!-- FORM TO CREATE event -->
-  <md-card class="demo-card demo-basic">
-    <md-toolbar color="primary">Create a new event</md-toolbar>
-    <md-card-content>
+  <div class="card" >
+    <h1 >Create a new event</h1>
+    <div class="row">
 
                 <form>
-                    <md-list>
+                    <ul>
                         <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
-                      <md-list-item>  <md-input class="demo-full-width" placeholder="Title" [(ngModel)]="eventData.title"></md-input></md-list-item>
+                      <li>  <input class="demo-full-width" placeholder="Title" [(ngModel)]="eventData.title"></li>
                         <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
-                      <md-list-item>  <md-input class="demo-full-width" type="text"placeholder="Date" [(ngModel)]="eventData.date"></md-input></md-list-item>
+                      <li>  <input class="demo-full-width" type="text"placeholder="Date" [(ngModel)]="eventData.date"></li>
                         <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
-                      <md-list-item>  <md-input class="demo-full-width" type="text" placeholder="Place" [(ngModel)]="eventData.place"></md-input></md-list-item>
+                      <li>  <input class="demo-full-width" type="text" placeholder="Place" [(ngModel)]="eventData.place"></li>
                         <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
-                    <md-list-item>    <md-input class="demo-full-width" placeholder="Description" [(ngModel)]="eventData.description"></md-input></md-list-item>
+                      <li>  <input class="demo-full-width" placeholder="Description" [(ngModel)]="eventData.description"></li>
 
 
-                          <md-list-item>  <h4>Shopping list</h4>  </md-list-item>
-                          <md-list-item>  <button md-raised-button color="primary" (click)="newShoppingListEllement()">
+                          <li>  <h4>Shopping list</h4>  </li>
+                          <li>  <button (click)="newShoppingListEllement()">
                               Add a Ellement in the list
-                          </button>  </md-list-item>
-                          <md-list-item *ngFor="let ellement of eventData.shoppingList">
-                            <md-input [(ngModel)]="ellement.name"
-                              placeholder="Enter a name" type="text"></md-input>
-                            <md-input [(ngModel)]="ellement.qte"
-                                placeholder="Enter a quantity" type="number"></md-input>
-                            <button md-mini-fab (click)="deleteShoppingListEllement(ellement)">
+                          </button>
+                        </li>
+                          <li *ngFor="let ellement of eventData.shoppingList">
+                            <input [(ngModel)]="ellement.name"
+                              placeholder="Enter a name" type="text">
+                            <input [(ngModel)]="ellement.qte"
+                                placeholder="Enter a quantity" type="number">
+                            <button (click)="deleteShoppingListEllement(ellement)">
                               X
                             </button>
-                          </md-list-item>
+                          </li>
+                            <li>  <input type="pasword"placeholder="Password" [(ngModel)]="eventData.password">
 
-                          <md-list-item>
-                            <md-list-item>  <md-input class="demo-full-width" type="pasword"placeholder="Password" [(ngModel)]="eventData.password"></md-input></md-list-item>
-
-                          </md-list-item>
-                        </md-list>
+                          </li>
+                        </ul>
 
                     <!-- createToDo() WILL CREATE NEW TODOS -->
 
                 </form>
-    </md-card-content>
-    <md-card-actions>
-      <button md-button type="submit" class="btn btn-primary btn-lg"
+    <div>
+    <div class="card">
+      <button type="submit" class="btn btn-primary btn-lg"
         (click)="createEvent()">SAVE</button>
-    </md-card-actions>
-  </md-card>
+    </div>
+  </div>
 </div>

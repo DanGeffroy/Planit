@@ -51,38 +51,22 @@ import {Event_share} from './event_share/event_share.component';
   // Load our main `Sass` file into our `app` `component`
   styleUrls: [require('!style!css!sass!../sass/main.scss')],
   template: `
-    <md-content>
-      <md-toolbar color="primary">
-          <span>{{ name }}</span>
-          <span class="fill"></span>
-          <button md-button router-active [routerLink]=" ['Index'] ">
-            Index
-          </button>
-          <button md-button router-active [routerLink]=" ['Event'] ">
-            Event
-          </button>
-          <button md-button router-active [routerLink]=" ['Event_edit'] ">
-            Event_edit
-          </button>
-          <button md-button router-active [routerLink]=" ['Event_share'] ">
-            Event_share
-          </button>
-          <button md-button router-active [routerLink]=" ['Home'] ">
-            Home
-          </button>
-      </md-toolbar>
-
-      <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading">
-      </md-progress-bar>
-
+    <nav>
+      <div class="nav-wrapper">
+          <a href="#" class="brand-logo">{{name}}</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a router-active [routerLink]=" ['Home'] ">Home</a></li>
+            <li><a router-active [routerLink]=" ['Event'] ">Event</a></li>
+            <li><a router-active [routerLink]=" ['Event_edit'] ">Event_Edit</a></li>
+            <li><a router-active [routerLink]=" ['Event_share'] ">Event_Share</a></li>
+          </ul>
+        </div>
+         </nav>
       <router-outlet></router-outlet>
-
-      <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
 
       <footer>
         <span>Made with &#9825; by <a [href]="url">Dan</a></span>
       </footer>
-    </md-content>
   `
 })
 @RouteConfig([
@@ -96,7 +80,7 @@ import {Event_share} from './event_share/event_share.component';
 ])
 export class App {
   angularLogo = 'assets/img/angular-logo.png';
-  name = 'Angular 2 MEAN Webpack Starter';
+  name = 'Planit';
   url = 'https://github.com/DanGeffroy/';
 
   // Pass in our application `state`
