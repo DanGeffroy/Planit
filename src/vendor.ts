@@ -15,6 +15,8 @@ import '@angular/router-deprecated';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
+import "materialize-css";
+
 // look in src/platform/angular2-material2 and src/platform/providers
 
 if ('production' === ENV) {

@@ -1,22 +1,59 @@
 <div class="container">
 
-  <div class="row"></div>
+  <div class="row">
+        <div class="col s12 m6">
+         <ul class="timeline">
+                <li class="timeline">
+                  <div class="timeline-badge timeline-badge-right"><i class="material-icons icon-timeline">done</i></div>
+                  <div class="timeline-panel">
+                    <div class="timeline-body">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" id="title" [(ngModel)]="eventData.title">
+                          <label for="title">Title of your event</label>
+                        </div>
+                        <div class="input-field col s12">
+                          <textarea class="materialize-textarea" id="description" [(ngModel)]="eventData.description"></textarea>
+                          <label for="description">Description</label>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col s12 m6">
+          <div class="card-panel">
+            <div class="row valign-wrapper">
+              <div class="col s2">
+                <img src="http://cdn3.pitchfork.com/albums/19217/5d2966f4.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+              </div>
+              <div class="col s10">
+                <h4 class="upper-case">{{eventData.title}}</h4>
+                <span class="black-text">
+                  {{eventData.description}}
+                </span>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+  </div>
 
   <!-- FORM TO CREATE event -->
   <div class="card" >
     <h1 >Create a new event</h1>
     <div class="row">
-
                 <form>
                     <ul>
                         <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
-                      <li>  <input class="demo-full-width" placeholder="Title" [(ngModel)]="eventData.title"></li>
+                      <li>  </li>
                         <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
                       <li>  <input class="demo-full-width" type="text"placeholder="Date" [(ngModel)]="eventData.date"></li>
                         <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
                       <li>  <input class="demo-full-width" type="text" placeholder="Place" [(ngModel)]="eventData.place"></li>
                         <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
-                      <li>  <input class="demo-full-width" placeholder="Description" [(ngModel)]="eventData.description"></li>
+                      <li>  </li>
 
 
                           <li>  <h4>Shopping list</h4>  </li>
@@ -37,9 +74,7 @@
 
                           </li>
                         </ul>
-
                     <!-- createToDo() WILL CREATE NEW TODOS -->
-
                 </form>
     <div>
     <div class="card">
