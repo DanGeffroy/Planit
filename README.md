@@ -68,7 +68,7 @@ The app is now running right here :  [http://localhost:3000/](http://localhost:3
 - sync the two shopping list qte, qte that will be bring/qte you want : &#10004;
 - add a password to protect the event
 - make the app more sexy
-  - choose between material2 and materializecss
+  - choose between material2 and materializecss &#10004;
   - make a home page
   - work on global aesthetic
   - work on specific part
