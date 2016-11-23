@@ -53,12 +53,12 @@ import {Event_share} from './event_share/event_share.component';
   template: `
     <nav>
       <div class="nav-wrapper">
-          <a href="#" class="brand-logo">{{name}}</a>
+          <a id="app-logo" href="#" class="brand-logo center"><img class="responsive-img" src="https://raw.githubusercontent.com/DanGeffroy/PartyPlanner/master/planit_logo.png"/></a>
           <ul class="right hide-on-med-and-down">
-            <li><a router-active [routerLink]=" ['Home'] ">Home</a></li>
-            <li><a router-active [routerLink]=" ['Event'] ">Event</a></li>
-            <li><a router-active [routerLink]=" ['Event_edit'] ">Event_Edit</a></li>
-            <li><a router-active [routerLink]=" ['Event_share'] ">Event_Share</a></li>
+            <li router-active><a [routerLink]=" ['Home'] ">Home</a></li>
+            <li router-active><a [routerLink]=" ['Event'] ">Event</a></li>
+            <li router-active><a [routerLink]=" ['Event_edit'] ">Event_Edit</a></li>
+            <li router-active><a [routerLink]=" ['Event_share'] ">Event_Share</a></li>
           </ul>
         </div>
          </nav>
