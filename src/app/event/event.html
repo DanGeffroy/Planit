@@ -1,10 +1,11 @@
 <div class="container">
-
+  <div class="row">
+  </div>
   <div class="row">
         <div class="col s12 m6">
          <ul class="timeline">
                 <li class="timeline">
-                  <div class="timeline-badge timeline-badge-right"><i class="material-icons icon-timeline">done</i></div>
+                  <div class="timeline-badge timeline-badge-right"><i class="material-icons icon-timeline">star</i></div>
                   <div class="timeline-panel">
                     <div class="timeline-body">
                       <div class="row">
@@ -20,66 +21,130 @@
                     </div>
                   </div>
                 </li>
+                <li class="timeline">
+                  <div class="timeline-badge timeline-badge-right"><i class="material-icons icon-timeline">schedule</i></div>
+                  <div class="timeline-panel">
+                    <div class="timeline-body">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" id="date" [(ngModel)]="eventData.date">
+                          <label for="date">When?</label>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="timeline">
+                  <div class="timeline-badge timeline-badge-right"><i class="material-icons icon-timeline">location_on</i></div>
+                  <div class="timeline-panel">
+                    <div class="timeline-body">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" id="place" [(ngModel)]="eventData.place">
+                          <label for="place">Where?</label>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="timeline">
+                  <div class="timeline-badge timeline-badge-right"><i class="material-icons icon-timeline">shopping_cart</i></div>
+                  <div class="timeline-panel">
+                    <div class="timeline-body">
+                      <h4>Shopping list</h4>
+                      <div class="row">
+                        <button class="btn btn-primary btn-lg" (click)="newShoppingListEllement()">
+                            Add a ellement in the your shopping list
+                        </button>
+                      </div>
+                      <div class="row shopinglist-ellement" *ngFor="let ellement of eventData.shoppingList">
+                        <div class="input-field col s12 m8">
+                          <input [(ngModel)]="ellement.name" placeholder="Enter a name" type="text">
+                        </div>
+                        <div class="input-field col s12 m3">
+                          <input [(ngModel)]="ellement.qte" placeholder="Enter a quantity" type="number">
+                        </div>
+                        <div class="input-field col s12 m1">
+                          <button (click)="deleteShoppingListEllement(ellement)">
+                            X
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="timeline">
+                  <div class="timeline-badge timeline-badge-right"><i class="material-icons icon-timeline">lock</i></div>
+                  <div class="timeline-panel">
+                    <div class="timeline-body">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input type="text" id="password" [(ngModel)]="eventData.password">
+                          <label for="password">Password?</label>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+                </li>
             </ul>
         </div>
         <div class="col s12 m6">
-          <div class="card-panel">
-            <div class="row valign-wrapper">
-              <div class="col s2">
-                <img src="http://cdn3.pitchfork.com/albums/19217/5d2966f4.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-              </div>
-              <div class="col s10">
-                <h4 class="upper-case">{{eventData.title}}</h4>
-                <span class="black-text">
-                  {{eventData.description}}
-                </span>
+          <div class="row">
+            <div class="card-panel">
+              <div class="row valign-wrapper">
+                <div class="col s2">
+                  <img src="http://cdn3.pitchfork.com/albums/19217/5d2966f4.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                </div>
+                <div class="col s10">
+                  <h4 class="upper-case">{{eventData.title}}</h4>
+                  <span class="black-text">
+                    {{eventData.description}}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
+          <div class="row">
+            <div class="card">
+             <div class="card-content">
+               <h4>General infos</h4>
+               <div class="row">
+                 <div class="col s12 m6">
+                   <div class="row infos-title">
+                     <p><small class="text-muted">When ?</small></p>
+                   </div>
+                   <div class="row">
+                     <p>{{eventData.date}}</p>
+                   </div>
+                 </div>
+                 <div class="col s12 m6">
+                   <div class="row infos-title">
+                     <p><small class="text-muted">Where ?</small></p>
+                   </div>
+                   <div class="row">
+                     <p>{{eventData.place}}</p>
+                   </div>
+                 </div>
+                 <div class="col s12">
+                   <div class="row infos-title">
+                     <p><small class="text-muted">Your shopping list</small></p>
+                   </div>
+                     <div class="row shopinglist-ellement" *ngFor="let ellement of eventData.shoppingList">
+                       <div class="input-field col s8 m4">
+                         <p>{{ellement.name}}</p>
+                       </div>
+                       <div class="input-field col s4 m2">
+                         <p>{{ellement.qte}}</p>
+                       </div>
+                     </div>
+                 </div>
+               </div>
+             </div>
+             <div class="card-action right-align">
+               <a class="waves-effect waves-light btn" (click)="createEvent()"><i class="material-icons right">done</i>Save your event</a>
+             </div>
+           </div>
           </div>
         </div>
-  </div>
-
-  <!-- FORM TO CREATE event -->
-  <div class="card" >
-    <h1 >Create a new event</h1>
-    <div class="row">
-                <form>
-                    <ul>
-                        <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
-                      <li>  </li>
-                        <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
-                      <li>  <input class="demo-full-width" type="text"placeholder="Date" [(ngModel)]="eventData.date"></li>
-                        <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
-                      <li>  <input class="demo-full-width" type="text" placeholder="Place" [(ngModel)]="eventData.place"></li>
-                        <!-- BIND THIS VALUE TO eventData.text IN ANGULAR -->
-                      <li>  </li>
-
-
-                          <li>  <h4>Shopping list</h4>  </li>
-                          <li>  <button (click)="newShoppingListEllement()">
-                              Add a Ellement in the list
-                          </button>
-                        </li>
-                          <li *ngFor="let ellement of eventData.shoppingList">
-                            <input [(ngModel)]="ellement.name"
-                              placeholder="Enter a name" type="text">
-                            <input [(ngModel)]="ellement.qte"
-                                placeholder="Enter a quantity" type="number">
-                            <button (click)="deleteShoppingListEllement(ellement)">
-                              X
-                            </button>
-                          </li>
-                            <li>  <input type="pasword"placeholder="Password" [(ngModel)]="eventData.password">
-
-                          </li>
-                        </ul>
-                    <!-- createToDo() WILL CREATE NEW TODOS -->
-                </form>
-    <div>
-    <div class="card">
-      <button type="submit" class="btn btn-primary btn-lg"
-        (click)="createEvent()">SAVE</button>
-    </div>
-  </div>
+      </div>
 </div>
