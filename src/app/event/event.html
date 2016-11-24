@@ -4,8 +4,8 @@
   <div class="row">
         <div class="col s12 m6">
          <ul class="timeline">
-                <li class="timeline">
-                  <div class="timeline-badge timeline-badge-right"><i class="material-icons icon-timeline">star</i></div>
+                <li class="timeline-inverted">
+                  <div class="timeline-badge timeline-badge-right primary"><i class="material-icons icon-timeline">star</i></div>
                   <div class="timeline-panel">
                     <div class="timeline-body">
                       <div class="row">
@@ -21,8 +21,8 @@
                     </div>
                   </div>
                 </li>
-                <li class="timeline">
-                  <div class="timeline-badge timeline-badge-right"><i class="material-icons icon-timeline">schedule</i></div>
+                <li class="timeline-inverted">
+                  <div class="timeline-badge timeline-badge-right success"><i class="material-icons icon-timeline">schedule</i></div>
                   <div class="timeline-panel">
                     <div class="timeline-body">
                       <div class="row">
@@ -34,8 +34,8 @@
                     </div>
                   </div>
                 </li>
-                <li class="timeline">
-                  <div class="timeline-badge timeline-badge-right"><i class="material-icons icon-timeline">location_on</i></div>
+                <li class="timeline-inverted">
+                  <div class="timeline-badge timeline-badge-right warning"><i class="material-icons icon-timeline">location_on</i></div>
                   <div class="timeline-panel">
                     <div class="timeline-body">
                       <div class="row">
@@ -47,34 +47,34 @@
                     </div>
                   </div>
                 </li>
-                <li class="timeline">
-                  <div class="timeline-badge timeline-badge-right"><i class="material-icons icon-timeline">shopping_cart</i></div>
+                <li class="timeline-inverted">
+                  <div class="timeline-badge timeline-badge-right danger"><i class="material-icons icon-timeline">shopping_cart</i></div>
                   <div class="timeline-panel">
                     <div class="timeline-body">
                       <h4>Shopping list</h4>
                       <div class="row">
-                        <button class="btn btn-primary btn-lg" (click)="newShoppingListEllement()">
-                            Add a ellement in the your shopping list
-                        </button>
+                        <a class="waves-effect waves-light btn" (click)="newShoppingListEllement()">
+                            <i class="material-icons left">playlist_add</i> Add
+                        </a>
                       </div>
                       <div class="row shopinglist-ellement" *ngFor="let ellement of eventData.shoppingList">
-                        <div class="input-field col s12 m8">
-                          <input [(ngModel)]="ellement.name" placeholder="Enter a name" type="text">
+                        <div class="input-field col s12 m6">
+                          <input [(ngModel)]="ellement.name" placeholder="Name" type="text">
                         </div>
                         <div class="input-field col s12 m3">
-                          <input [(ngModel)]="ellement.qte" placeholder="Enter a quantity" type="number">
+                          <input [(ngModel)]="ellement.qte" placeholder="Quantity" type="number">
                         </div>
-                        <div class="input-field col s12 m1">
-                          <button (click)="deleteShoppingListEllement(ellement)">
-                            X
-                          </button>
+                        <div class="input-field col s12 m3">
+                          <a class="waves-effect waves-light btn" (click)="deleteShoppingListEllement(ellement)">
+                            <i class="material-icons">delete</i>
+                          </a>
                         </div>
                       </div>
                     </div>
                   </div>
                 </li>
-                <li class="timeline">
-                  <div class="timeline-badge timeline-badge-right"><i class="material-icons icon-timeline">lock</i></div>
+                <li class="timeline-inverted">
+                  <div class="timeline-badge timeline-badge-right info"><i class="material-icons icon-timeline">lock</i></div>
                   <div class="timeline-panel">
                     <div class="timeline-body">
                       <div class="row">
