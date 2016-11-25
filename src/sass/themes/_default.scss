@@ -18,12 +18,14 @@ $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
 $link-color: color("light-blue", "darken-1") !default;
 */
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
 body{
   background-color:#EEEEEE;
 }
 #app-logo{
-  width: 70px;
-  margin-top: -3px;
+  margin-top: -5px;
+  font-family: 'Pacifico', cursive;
+  font-size: 250%;
 }
 .upper-case{
   text-transform: uppercase;
@@ -50,4 +52,7 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 }
 .shopinglist-ellement{
   margin-bottom: 0px;
+}
+.title-row{
+  margin-bottom: -5px;
 }

@@ -1,0 +1,66 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+#app-logo{
+  width:20vh;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+  background: -webkit-linear-gradient(top, rgba(136,164,243,0.3), rgba(234,132,219,0.3)); /* For Safari 5.1 to 6.0 */
+ background: -o-linear-gradient(top, rgba(136,164,243,0.3), rgba(234,132,219,0.3)); /* For Opera 11.1 to 12.0 */
+ background: -moz-linear-gradient(top, rgba(136,164,243,0.3), rgba(234,132,219,0.3)); /* For Firefox 3.6 to 15 */
+ background: linear-gradient(to top, rgba(136,164,243,0.3), rgba(234,132,219,0.3)); /* Standard syntax (must be last) */
+background-color:rgba(136,164,243,.5);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}

@@ -52,9 +52,16 @@ import {Event_share} from './event_share/event_share.component';
   styleUrls: [require('!style!css!sass!../sass/main.scss')],
   template: `
     <nav>
-      <div class="nav-wrapper">
-          <a id="app-logo" href="#" class="brand-logo center"><img class="responsive-img" src="https://raw.githubusercontent.com/DanGeffroy/PartyPlanner/master/planit_logo.png"/></a>
+      <div class="nav-wrapper container">
+          <a id="app-logo" href="#" class="brand-logo">planit</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
+            <li router-active><a [routerLink]=" ['Home'] ">Home</a></li>
+            <li router-active><a [routerLink]=" ['Event'] ">Event</a></li>
+            <li router-active><a [routerLink]=" ['Event_edit'] ">Event_Edit</a></li>
+            <li router-active><a [routerLink]=" ['Event_share'] ">Event_Share</a></li>
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
             <li router-active><a [routerLink]=" ['Home'] ">Home</a></li>
             <li router-active><a [routerLink]=" ['Event'] ">Event</a></li>
             <li router-active><a [routerLink]=" ['Event_edit'] ">Event_Edit</a></li>
@@ -64,9 +71,11 @@ import {Event_share} from './event_share/event_share.component';
          </nav>
       <router-outlet></router-outlet>
 
-      <footer>
-        <span>Made with &#9825; by <a [href]="url">Dan</a></span>
-      </footer>
+      <footer class="page-footer">
+            <div class="container center">
+            Made with &#9825; by <a [href]="url">Dan</a>
+            </div>
+        </footer>
   `
 })
 @RouteConfig([
