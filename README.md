@@ -2,14 +2,18 @@
     <img src="planit_banner.png" height="250">
 </p>
 
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/DanGeffroy/PartyPlanner/blob/master/LICENSE)  
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/DanGeffroy/PartyPlanner/blob/master/LICENSE)
+![work in progress](https://img.shields.io/badge/status-work%20in%20progress-yellow.svg)
+![node](https://img.shields.io/badge/node-7.2.0-brightgreen.svg)
+![mongoDB](https://img.shields.io/badge/mongoDB-3.4.0-brightgreen.svg)
+
 
 A web application that help you planning stuff like party or any kind of events
 
 ## Wanted features
 - Date choice (including vote if user want)
 - Place choice (including vote if user want) or GPS position selection
-- shopping list for attendees
+- shopping list for attendees : &#10004;
 - probably more !
 
 
@@ -68,8 +72,8 @@ The app is now running right here :  [http://localhost:3000/](http://localhost:3
 - sync the two shopping list qte, qte that will be bring/qte you want : &#10004;
 - add a password to protect the event
 - make the app more sexy
-  - choose between material2 and materializecss &#10004;
-  - make a home page
+  - choose between material2 and materializecss : &#10004;
+  - make a home page : &#10004;
   - work on global aesthetic
   - work on specific part
 
