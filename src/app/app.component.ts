@@ -34,6 +34,9 @@ import {Event_edit} from './event_edit/event_edit.component';
 // Import Event_share component
 import {Event_share} from './event_share/event_share.component';
 
+// Import notfound component
+import {NotFound} from './notFound/notFound.component';
+
 /*
  * App Component
  * Top Level Component
@@ -51,6 +54,7 @@ import {Event_share} from './event_share/event_share.component';
   // Load our main `Sass` file into our `app` `component`
   styleUrls: [require('!style!css!sass!../sass/main.scss')],
   template: `
+  <header>
     <nav>
       <div class="nav-wrapper container">
           <a id="app-logo" href="#" class="brand-logo">planit</a>
@@ -69,7 +73,8 @@ import {Event_share} from './event_share/event_share.component';
           </ul>
         </div>
          </nav>
-      <router-outlet></router-outlet>
+      </header>
+      <main><router-outlet></router-outlet></main>
 
       <footer class="page-footer">
             <div class="container center">
@@ -86,6 +91,7 @@ import {Event_share} from './event_share/event_share.component';
   { path: '/event_edit/:id/:password', component: Event_edit, name: 'Event_edit_withId' },
   { path: '/event_share', component: Event_share, name: 'Event_share' },
   { path: '/event_share/:id', component: Event_share, name: 'Event_share_withId' },
+  { path: '**', component: NotFound, name: 'NotFound' },
 ])
 export class App {
   angularLogo = 'assets/img/angular-logo.png';

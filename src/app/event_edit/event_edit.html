@@ -50,20 +50,35 @@
 <div *ngIf="!state" class="container">
 
   <!-- FORM TO CREATE TODOS -->
-  <div id="event_edit-form" class="row">
-      <div class="col-sm-8 col-sm-offset-2 text-center">
-        <h1>Event not found</h1>
-          <form>
-              <div class="form-group">
+  <div id="event_edit-form" class="container">
+    <div class="row">
+      <div class="card col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card-content">
+          <span class="card-title">Paper please !</span>
+              <div class="textarea-margin-top">
                   <!-- BIND THIS VALUE TO event_editData.text IN ANGULAR -->
-                  <label>Enter your event id to edit it</label>
-                  <input type="text" class="form-control input-lg text-center" [(ngModel)]="tmpId" required>
-                  <label>Enter your event password</label>
-                  <input type="text" class="form-control input-lg text-center" [(ngModel)]="tmpPassword" required>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="tmpId" type="text" class="form-control input-lg text-center" [(ngModel)]="tmpId" required>
+                      <label for="tmpId">Envent ID</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="tmpPassword" type="password" class="form-control input-lg text-center" [(ngModel)]="tmpPassword" required>
+                      <label for="tmpPassword">Password</label>
+                    </div>
+                  </div>
+
               </div>
-              <button type="submit" class="btn btn-primary btn-lg"
-              (click)="findEvent()">go :D</button>
-          </form>
+              <p><small class="text-muted">You can use the link provided in the mail we send you when you have created your event</small></p>
+              </div>
+              <div class="card-action center">
+                <button type="submit" class="btn btn-primary btn-lg"
+                (click)="findEvent()">go <i class="material-icons right">send</i></button>
+              </div>
       </div>
+    </div>
   </div>
 </div>

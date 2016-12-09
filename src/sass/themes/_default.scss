@@ -20,7 +20,15 @@ $link-color: color("light-blue", "darken-1") !default;
 */
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 body{
+  background-color:white;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+ main {
   background-color:#EEEEEE;
+  flex: 1 0 auto;
 }
 #app-logo{
   margin-top: -5px;
