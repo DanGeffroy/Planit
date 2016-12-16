@@ -57,6 +57,15 @@ $ gulp serve
 
 The app is now running right here :  [http://localhost:3000/](http://localhost:3000/)
 
+## Switch to production
+```bash
+# Build the application  
+$ npm run build:prod  
+
+# Start the server
+$ gulp serve
+```
+
 <p align="center">
     <img src="https://media.giphy.com/media/hsBZfDG7wiWHu/giphy.gif">
 </p>
