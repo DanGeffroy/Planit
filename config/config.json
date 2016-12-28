@@ -1,6 +1,6 @@
 {
   "ENV" : "development",
-  "PORT" : 3000,
+  "PORT" : 80,
   "MONGO_URI" : {
     "DEVELOPMENT" : "mongodb://localhost:27017",
     "PRODUCTION" : "mongodb://localhost:27017",
