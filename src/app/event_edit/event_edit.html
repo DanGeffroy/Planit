@@ -51,6 +51,7 @@
 
   <!-- FORM TO CREATE TODOS -->
   <div id="event_edit-form" class="container">
+    <form>
     <div class="row">
       <div class="card col s12 m8 offset-m2 l6 offset-l3">
         <div class="card-content">
@@ -70,6 +71,9 @@
                       <label for="tmpPassword">Password</label>
                     </div>
                   </div>
+                  <div *ngIf="msg !=''" class="row">
+                      <p class="right-align error-msg"><i class="material-icons right">report_problem</i> {{msg}}</p>
+                  </div>
 
               </div>
               <p><small class="text-muted">You can use the link provided in the mail we send you when you have created your event</small></p>
@@ -80,5 +84,6 @@
               </div>
       </div>
     </div>
+  </form>
   </div>
 </div>

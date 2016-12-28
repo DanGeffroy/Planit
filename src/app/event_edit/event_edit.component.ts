@@ -39,6 +39,8 @@ export class Event_edit {
     shoppingList: []
   };
 
+  private msg : String = "";
+
   private state : boolean = true;
   private subscription: Subscription;
 
@@ -61,7 +63,7 @@ export class Event_edit {
   }
 
   updateView(){
-    if(this.tmpId === null || this.tmpPassword === null){
+    if(this.tmpId === null || this.tmpPassword === null || this.tmpId === "" || this.tmpPassword === ""){
       this.state = false
     }
     else{
@@ -70,7 +72,9 @@ export class Event_edit {
         .subscribe((res) => {
             // Populate our `event_edit` array with the `response` data
             this.event_editData = res;
-            if(this.event_editData._id === undefined){
+            if(this.event_editData === null){
+              console.log("Wrong password or id")
+              this.msg = "Wrong id or password";
               this.state = false;
             }
             else{

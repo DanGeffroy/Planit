@@ -16,7 +16,7 @@ const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = {
-  title: 'Angular 2 MEAN Webpack Starter Kit by @datatype_void',
+  title: 'Planit',
   baseUrl: '/',
   host: process.env.HOST || '0.0.0.0',
   port: process.env.PORT || 8080,
