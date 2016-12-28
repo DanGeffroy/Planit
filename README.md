@@ -79,7 +79,7 @@ $ gulp serve
 - 'join the event' feature : &#10004;
 - 'choose chat you bring' feature : &#10004;
 - sync the two shopping list qte, qte that will be bring/qte you want : &#10004;
-- add a password to protect the event
+- add a password to protect the event : &#10004;
 - make the app more sexy
   - choose between material2 and materializecss : &#10004;
   - make a home page : &#10004;
