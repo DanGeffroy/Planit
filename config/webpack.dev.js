@@ -16,6 +16,8 @@ var DefinePlugin = require('webpack/lib/DefinePlugin');
 var HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugin');
 var NoErrorsPlugin = require('webpack/lib/NoErrorsPlugin');
 
+var webpack = require("webpack");
+
 //# Webpack Constants
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HMR = helpers.hasProcessFlag('hot');
@@ -95,7 +97,14 @@ module.exports = webpackMerge(commonConfig, {
         'NODE_ENV': JSON.stringify(METADATA.ENV),
         'HMR': METADATA.HMR
       }
-    })
+    }),
+    new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    'window.$': 'jquery',
+    'window.jQuery': 'jquery',
+    "Hammer": "hammerjs/hammer"
+  })
   ],
 
   // Other module loader config

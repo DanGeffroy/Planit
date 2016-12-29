@@ -19,6 +19,9 @@ var UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 var CompressionPlugin = require('compression-webpack-plugin');
 var WebpackMd5Hash = require('webpack-md5-hash');
 
+
+var webpack = require("webpack");
+
 //# Webpack Constants
 const ENV = process.env.ENV = process.env.NODE_ENV = 'production';
 const HOST = process.env.HOST || '0.0.0.0';
@@ -102,91 +105,10 @@ module.exports = webpackMerge(commonConfig, {
       }
     }),
 
-    // Plugin: UglifyJsPlugin
-    // Description: Minimize all JavaScript output of chunks.
-    // Loaders are switched into minimizing mode.
-    //
-    // See: https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
-    // NOTE: To debug prod builds uncomment //debug lines and comment //prod lines
-    new UglifyJsPlugin({
-      // beautify: true, //debug
-      // mangle: false, //debug
-      // dead_code: false, //debug
-      // unused: false, //debug
-      // deadCode: false, //debug
-      // compress: {
-      //   screw_ie8: true,
-      //   keep_fnames: true,
-      //   drop_debugger: false,
-      //   dead_code: false,
-      //   unused: false
-      // }, // debug
-      // comments: true, //debug
-
-      beautify: false, //prod
-
-      mangle: {
-        screw_ie8 : true,
-        keep_fnames: true
-      }, // Production
-      /*
-      mangle: {
-        screw_ie8: true,
-        except: [
-            'App',
-            'About',
-            'Contact',
-            'Home',
-            'Menu',
-            'Footer',
-            'XLarge',
-            'RouterActive',
-            'RouterLink',
-            'RouterOutlet',
-            'NgFor',
-            'NgIf',
-            'NgClass',
-            'NgSwitch',
-            'NgStyle',
-            'NgSwitchDefault',
-            'NgControl',
-            'NgControlName',
-            'NgControlGroup',
-            'NgFormControl',
-            'NgModel',
-            'NgFormModel',
-            'NgForm',
-            'NgSelectOption',
-            'DefaultValueAccessor',
-            'NumberValueAccessor',
-            'CheckboxControlValueAccessor',
-            'SelectControlValueAccessor',
-            'RadioControlValueAccessor',
-            'NgControlStatus',
-            'RequiredValidator',
-            'MinLengthValidator',
-            'MaxLengthValidator',
-            'PatternValidator',
-            'AsyncPipe',
-            'DatePipe',
-            'JsonPipe',
-            'NumberPipe',
-            'DecimalPipe',
-            'PercentPipe',
-            'CurrencyPipe',
-            'LowerCasePipe',
-            'UpperCasePipe',
-            'SlicePipe',
-            'ReplacePipe',
-            'I18nPluralPipe',
-            'I18nSelectPipe'
-          ] // Needed for uglify RouterLink problem
-      }, // prod
-      */
+    new webpack.optimize.UglifyJsPlugin({
       compress: {
-        screw_ie8: true
-      }, //prod
-      comments: false //prod
+          warnings: false
+      }
     }),
 
     // Plugin: CompressionPlugin
