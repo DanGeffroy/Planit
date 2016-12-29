@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+.loader-1 {
+  font-family: 'Pacifico', cursive;
+   width: 600px;
+   height: 250px;
+   line-height: 150px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   margin-top: -75px;
+   margin-left: -300px;
+   text-align: center;
+   -webkit-background-clip: text;
+   -moz-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   -moz-text-fill-color: transparent;
+
+   background-image: url('../../img/home-css-processed.png');
+   -webkit-animation: loadingMove 6s infinite;
+   -moz-animation: loadingMove 6s infinite;
+   background-size: 100% auto;
+   font-size: 700%;
+   font-weight: 300;
+}
+
+@-webkit-keyframes loadingMove {
+   0% {background-position: 0px 0px;}
+  50% {background-position: 0px -100px;}
+  100% {background-position: 0px 0px;}
+}
+
+@-moz-keyframes loadingMove {
+   0% {background-position: 0px 0px;}
+  50% {background-position: 0px -100px;}
+  100% {background-position: 0px 0px;}
+}
+.loader-2{
+  margin-top:-20px;
+  position: absolute;
+  left: 60%;
+  width:25px;
+  height:25px;
+  background:transparent;
+  border-radius:100%;
+
+  box-shadow:25px 0 #88A4F3,50px 0 #DC88DE;
+  animation:flickr 1s linear infinite;
+}
+
+@keyframes loader-2{
+  50%{box-shadow:50px 0 #88A4F3,25px 0 #DC88DE;}
+  50.1%{box-shadow:25px 0 #DC88DE,50px 0 #88A4F3;}
+  100%{box-shadow:50px 0 #DC88DE,25px 0 #88A4F3;}
+}
