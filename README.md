@@ -84,6 +84,7 @@ $ gulp serve
   - choose between material2 and materializecss : &#10004;
   - make a home page : &#10004;
   - work on global aesthetic
-  - work on specific part
+  - work on specific part  
+- add a loader : &#10004;
 
 Made with :heart: by Dan
